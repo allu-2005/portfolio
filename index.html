@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Misha Johnson | Bold Portfolio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Space Grotesk', sans-serif;
+}
+
+body{
+  background:#0b0b12;
+  color:#ffffff;
+  overflow-x:hidden;
+}
+
+/* ---------- HERO ---------- */
+.hero{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:40px;
+}
+
+.hero h1{
+  font-size:clamp(4rem,12vw,11rem);
+  font-weight:700;
+  line-height:0.9;
+  letter-spacing:-2px;
+}
+
+.hero h1 span{
+  display:block;
+  background:linear-gradient(135deg,#ff0080,#7928ca,#00d4ff);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  animation:gradientMove 6s infinite alternate;
+}
+
+@keyframes gradientMove{
+  from{ background-position:0% 50%; }
+  to{ background-position:100% 50%; }
+}
+
+.hero p{
+  margin-top:30px;
+  font-size:1.2rem;
+  color:#cfcfe3;
+  max-width:500px;
+}
+
+/* ---------- SECTIONS ---------- */
+section{
+  padding:140px 60px;
+  max-width:1200px;
+  margin:auto;
+  opacity:0;
+  transform:translateY(80px);
+  transition:1s cubic-bezier(.19,1,.22,1);
+}
+
+section.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
+h2{
+  font-size:clamp(2.5rem,6vw,5rem);
+  margin-bottom:50px;
+  background:linear-gradient(135deg,#00d4ff,#ff0080);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+/* ---------- CARDS ---------- */
+.card{
+  background:#14141f;
+  border:1px solid #232338;
+  padding:40px;
+  margin-bottom:40px;
+  transition:0.4s;
+}
+
+.card:hover{
+  transform:translateY(-10px) scale(1.02);
+  border-color:#ff0080;
+}
+
+/* ---------- SKILLS ---------- */
+.skills{
+  display:flex;
+  flex-wrap:wrap;
+}
+
+.skills span{
+  margin:10px 12px 0 0;
+  padding:14px 24px;
+  border:2px solid #00d4ff;
+  font-weight:600;
+  transition:0.3s;
+}
+
+.skills span:hover{
+  background:#00d4ff;
+  color:#0b0b12;
+}
+
+/* ---------- PROJECTS ---------- */
+.project h3{
+  font-size:1.6rem;
+  margin-bottom:10px;
+}
+
+/* ---------- BUTTON ---------- */
+button{
+  margin-top:40px;
+  padding:16px 46px;
+  font-size:1rem;
+  font-weight:700;
+  background:linear-gradient(135deg,#ff0080,#7928ca);
+  color:white;
+  border:none;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+button:hover{
+  transform:scale(1.05);
+  box-shadow:0 20px 40px rgba(255,0,128,0.3);
+}
+
+/* ---------- FOOTER ---------- */
+footer{
+  padding:80px 60px;
+  border-top:1px solid #232338;
+  font-size:0.9rem;
+  color:#8f8fb3;
+}
+
+/* ---------- ACCENT SHAPES ---------- */
+.shape{
+  position:fixed;
+  width:200px;
+  height:200px;
+  background:#ff0080;
+  filter:blur(120px);
+  opacity:0.4;
+  z-index:-1;
+}
+
+.shape.one{ top:10%; left:5%; }
+.shape.two{ bottom:20%; right:10%; background:#00d4ff; }
+</style>
+</head>
+<body>
+
+<div class="shape one"></div>
+<div class="shape two"></div>
+
+<!-- HERO -->
+<div class="hero">
+  <div>
+    <h1>
+      <span>Misha</span>
+      <span>Johnson</span>
+    </h1>
+    <p>
+      Bold, modern web developer crafting expressive digital experiences
+      through strong typography, color, and motion.
+    </p>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section>
+  <h2>About</h2>
+  <div class="card">
+    I’m Misha Johnson — a developer focused on building visually powerful,
+    interactive interfaces with clean structure and smooth motion.
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section>
+  <h2>Skills</h2>
+  <div class="card skills">
+    <span>HTML</span>
+    <span>CSS</span>
+    <span>JavaScript</span>
+    <span>Python</span>
+    <span>C</span>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section>
+  <h2>Projects</h2>
+
+  <div class="card project">
+    <h3>Bold Portfolio</h3>
+    <p>High-impact portfolio using large typography, vibrant gradients, and smooth motion.</p>
+  </div>
+
+  <div class="card project">
+    <h3>Mini Project</h3>
+    <p>Academic project showcasing problem-solving and UI design fundamentals.</p>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section>
+  <h2>Contact</h2>
+  <div class="card">
+    Email: mishajohnson@example.com  
+    <br>
+    <button onclick="hi()">Let’s Talk</button>
+  </div>
+</section>
+
+<footer>
+  © 2026 Misha Johnson — Designed loud, built clean.
+</footer>
+
+<script>
+const sections = document.querySelectorAll("section");
+
+window.addEventListener("scroll", () => {
+  const trigger = window.innerHeight * 0.75;
+  sections.forEach(sec => {
+    if(sec.getBoundingClientRect().top < trigger){
+      sec.classList.add("show");
+    }
+  });
+});
+
+function hi(){
+  alert("Thanks for reaching out to Misha Johnson 🚀");
+}
+</script>
+
+</body>
+</html>
